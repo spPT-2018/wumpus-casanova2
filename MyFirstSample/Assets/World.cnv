@@ -86,14 +86,21 @@ entity Cube = {
 }
 
 entity Test = {
-    Bois : Vector3
+    Res : Vector3
     
-    rule Bois =
+    rule Res =
+        wait 1f
         yield Vector3.zero
+        
+    rule Res = 
+        let v = Vector3.zero
+        let s = new Vector3(2,2,2)
+        let scale = Vector3.Scale(v,s)
+        yield scale
     
     Create() =
         let a = 3.0f
         {
-            Bois = Vector3.zero
+            Res = Vector3.zero
         }
 }

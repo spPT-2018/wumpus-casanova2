@@ -6,6 +6,7 @@ using System.Linq;
 using System.IO;
 using System.Collections.Generic;
 using System.Text;
+using Debug = UnityEngine.Debug;
 
 
 public class AssetsImport : AssetPostprocessor
@@ -28,7 +29,7 @@ public class AssetsImport : AssetPostprocessor
 				try {
 
 						Process myProcess = new Process ();
-						myProcess.StartInfo.WindowStyle = ProcessWindowStyle.Hidden;
+						myProcess.StartInfo.WindowStyle = ProcessWindowStyle.Normal;
 						myProcess.StartInfo.CreateNoWindow = true;
 						myProcess.StartInfo.FileName = cmd;
 						myProcess.StartInfo.Arguments = args;
@@ -80,7 +81,7 @@ public class AssetsImport : AssetPostprocessor
     var assets_folder = Path.Combine(Directory.GetCurrentDirectory(), "Assets");
     var cnv_file = Path.Combine(assets_folder, fileNameWithoutExtension + ".cnv");
     var cs_file = Path.Combine(assets_folder, fileNameWithoutExtension + ".cs");
-    var compiler_path = Path.Combine(Directory.GetCurrentDirectory(), @"..\..\CasanovaCompiler\CasanovaCompiler.exe");
+    var compiler_path = Path.Combine(Directory.GetCurrentDirectory(), @"..\CasanovaCompiler\CasanovaCompiler.exe");
 
 
     string args = "\"" + cnv_file + "\" " + "\"" + cs_file + "\"";
@@ -101,6 +102,7 @@ public class AssetsImport : AssetPostprocessor
 
   static void OnPostprocessAllAssets(string[] importedAssets, string[] deletedAssets, string[] movedAssets, string[] movedFromAssetPaths)
   {
+	  Debug.Log("Importing cnv");
     Dictionary<string, bool> projectsToBuild = new Dictionary<string, bool>();
     foreach (string asset in importedAssets)
     {
