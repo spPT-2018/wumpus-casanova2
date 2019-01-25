@@ -29,7 +29,7 @@ worldEntity World = {
       yield Cubes
     .| Input.GetKeyDown(KeyCode.S) =>
       while true do
-        wait 1.0f
+        wait 0.1f
         yield new Cube(Color.white) :: Cubes
     .| _ => yield Cubes
 
@@ -69,6 +69,7 @@ entity Cube = {
 
   rule Position = 
     yield Position + Velocity * dt
+    
   Create(color : Color) =
     let cube = UnityCube.Instantiate(color)
     let dist = 3.0f
@@ -83,24 +84,4 @@ entity Cube = {
       Factor = 2.0f 
       Checkpoints = checkpoints
     }
-}
-
-entity Test = {
-    Res : Vector3
-    
-    rule Res =
-        wait 1f
-        yield Vector3.zero
-        
-    rule Res = 
-        let v = Vector3.zero
-        let s = new Vector3(2,2,2)
-        let scale = Vector3.Scale(v,s)
-        yield scale
-    
-    Create() =
-        let a = 3.0f
-        {
-            Res = Vector3.zero
-        }
 }

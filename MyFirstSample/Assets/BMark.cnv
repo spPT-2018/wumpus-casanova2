@@ -1,0 +1,127 @@
+module Testing
+
+open "UnityEngine.dll"
+open UnityEngine
+
+worldEntity BMark = {
+    Abc : int
+    
+    rule Abc = 
+        yield Abc
+        
+  Create() = { 
+    Abc = 2
+    
+  }
+}
+
+entity AllTests = {
+   Rf : float32
+   Step : int
+    
+   //Vector2
+   //Scale
+   rule Rf =
+    let v = Vector2.one
+    let scale = Vector2.Scale(v, new Vector2(dt, dt))
+    yield scale.x
+   
+   //Multiply
+   rule Rf =
+    let v = Vector2.one
+    let v2 = new Vector2(dt, dt)
+    let mult = new Vector2(v.x * v2.x, v.y * v2.y)
+    yield mult.x
+    
+   //Translate
+   rule Rf = 
+    let v = Vector2.one
+    let v2 = new Vector2(dt, dt)
+    let trans = v + v2
+    yield trans.x
+    
+   //Subtract
+   rule Rf =
+    let v = Vector2.one
+    let v2 = new Vector2(dt, dt)
+    let sub = v2 - v
+    yield sub.x
+    
+   //Length
+   rule Rf = 
+    let v2 = new Vector2(dt, dt)
+    yield v2.magnitude
+    
+   //Dot
+   rule Rf =
+    let v = Vector2.one
+    let v2 = new Vector2(dt, dt)
+    let dot = Vector2.Dot(v, v2)
+    yield dot
+    
+    
+    
+    
+    
+   //Vector3 part
+   //Scale
+   rule Rf =
+    let v = Vector3.one
+    let scale = Vector3.Scale(v, new Vector3(dt, dt, dt))
+    yield scale.x
+   
+   //Multiply
+   rule Rf =
+    let v = Vector3.one
+    let v2 = new Vector3(dt, dt, dt)
+    let mult = new Vector3(v.x * v2.x, v.y * v2.y, v.z * v2.z)
+    yield mult.x
+    
+   //Translate
+   rule Rf = 
+    let v = Vector3.one
+    let v2 = new Vector3(dt, dt, dt)
+    let trans = v + v2
+    yield trans.x
+    
+   //Subtract
+   rule Rf =
+    let v = Vector3.one
+    let v2 = new Vector3(dt, dt, dt)
+    let sub = v2 - v
+    yield sub.x
+    
+   //Length
+   rule Rf = 
+    let v2 = new Vector3(dt, dt, dt)
+    yield v2.magnitude
+    
+   //Dot
+   rule Rf =
+    let v = Vector3.one
+    let v2 = new Vector3(dt, dt, dt)
+    let dot = Vector3.Dot(v, v2)
+    yield dot
+    
+   //Math tests
+   //Sestoft
+   rule Rf =
+    let d = 1.1f * (dt % 256) //floats instead of doubles though
+    yield d * d * d * d * d * d * d * d * d * d * d * d * d * d * d * d * d * d * d * d
+    
+   //Primes 
+   // ?????
+   
+   //MemTest
+   //rule Rf =
+   // let arr = [0..100000]
+   // let re = arr.Length % 256
+   // yield re
+       
+    
+    
+   Create() = {
+    Rf = 1.0f
+    Step = 0
+   }
+}

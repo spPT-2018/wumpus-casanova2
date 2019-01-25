@@ -1,0 +1,37 @@
+module GameTwo
+
+open "UnityEngine.dll"
+open UnityEngine
+
+worldEntity Wumpus = {
+    Abc : int
+    Agenty : CnvAgent
+    
+    rule Abc = 
+        yield Abc
+        
+  Create() = { 
+    Abc = 2
+    Agenty = new CnvAgent()
+    
+  }
+}
+
+entity CnvAgent = {
+    inherit UnityAgent
+    Target : Vector2
+    Spent : float32
+    Dur : float32
+    
+    
+    rule Position = 
+        yield Position
+        
+    Create() = 
+    {
+        UnityAgent = UnityAgent.Instantiate()
+        Target = Vector2.zero
+        Spent = 2.0f
+        Dur = 1.0f
+    }
+}

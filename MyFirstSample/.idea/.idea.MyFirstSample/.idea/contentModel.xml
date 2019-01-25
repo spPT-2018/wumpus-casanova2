@@ -6,22 +6,34 @@
       <e p="Assembly-CSharp-Editor.csproj" t="IncludeRecursive" />
       <e p="Assembly-CSharp.csproj" t="IncludeRecursive" />
       <e p="Assets" t="Include">
+        <e p="BMark.cs" t="Include" />
         <e p="Editor" t="Include">
           <e p="CasanovaAssetsImporter.cs" t="Include" />
         </e>
         <e p="Prelude.cs" t="Include" />
-        <e p="Timer.cs" t="Include" />
-        <e p="UnityBenchmark.cs" t="Include" />
+        <e p="Resources" t="Include">
+          <e p="Wum" t="Include">
+            <e p="Scripts" t="Include">
+              <e p="Agent.cs" t="Include" />
+              <e p="Benchmark.cs" t="Include" />
+              <e p="Test2D.cs" t="Include" />
+              <e p="Test3D.cs" t="Include" />
+              <e p="TestMath.cs" t="Include" />
+              <e p="Timer.cs" t="Include" />
+              <e p="WorldGenerator.cs" t="Include" />
+              <e p="Wumpus.cs" t="Include" />
+            </e>
+          </e>
+        </e>
+        <e p="UnityAgent.cs" t="Include" />
         <e p="UnityCube.cs" t="Include" />
         <e p="World.cs" t="Include" />
+        <e p="Wumpus.cs" t="Include" />
       </e>
-      <e p="Library" t="ExcludeRecursive" />
       <e p="MyFirstSample.sln" t="IncludeFlat" />
       <e p="obj" t="ExcludeRecursive" />
       <e p="packages" t="ExcludeRecursive" />
-      <e p="Temp" t="ExcludeRecursive">
-        <e p="bin" t="ExcludeRecursive" />
-      </e>
+      <e p="Temp\bin" t="ExcludeRecursive" />
     </e>
   </component>
 </project>
